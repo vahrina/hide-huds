@@ -1,0 +1,62 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>HideHud</AssemblyName>
+    <RootNamespace>HideHud</RootNamespace>
+    <Version>1.0.0</Version>
+    <DebugType>portable</DebugType>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
+  <!-- override with -p:RiskOfRain2Path=... -p:MmhookPath=... -->
+  <PropertyGroup>
+    <RiskOfRain2Path Condition="'$(RiskOfRain2Path)' == ''">C:\Program Files (x86)\Steam\steamapps\common\Risk of Rain 2</RiskOfRain2Path>
+    <MmhookPath Condition="'$(MmhookPath)' == ''">$(APPDATA)\Thunderstore Mod Manager\DataFolder\RiskOfRain2\profiles\cats\BepInEx\plugins\MMHOOK</MmhookPath>
+    <RoR2ManagedPath>$(RiskOfRain2Path)\Risk of Rain 2_Data\Managed</RoR2ManagedPath>
+    <!-- optional, copies the dll here after build -->
+    <PluginDeployPath Condition="'$(PluginDeployPath)' == ''"></PluginDeployPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
+    <PackageReference Include="BepInEx.Core" Version="5.4.21" />
+    <PackageReference Include="UnityEngine.Modules" Version="2021.3.33" IncludeAssets="compile" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="RoR2">
+      <HintPath>$(RoR2ManagedPath)\RoR2.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>$(RoR2ManagedPath)\UnityEngine.UI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>$(RoR2ManagedPath)\Unity.TextMeshPro.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="com.unity.multiplayer-hlapi.Runtime">
+      <HintPath>$(RoR2ManagedPath)\com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="MMHOOK_RoR2">
+      <HintPath>$(MmhookPath)\MMHOOK_RoR2.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="CheckGamePaths" BeforeTargets="ResolveAssemblyReferences">
+    <Error Condition="!Exists('$(RoR2ManagedPath)\RoR2.dll')" Text="RoR2.dll not found in '$(RoR2ManagedPath)', set RiskOfRain2Path" />
+    <Error Condition="!Exists('$(MmhookPath)\MMHOOK_RoR2.dll')" Text="MMHOOK_RoR2.dll not found in '$(MmhookPath)', run the game once with HookGenPatcher and set MmhookPath" />
+  </Target>
+
+  <Target Name="DeployPlugin" AfterTargets="Build" Condition="'$(PluginDeployPath)' != ''">
+    <MakeDir Directories="$(PluginDeployPath)" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(PluginDeployPath)" />
+  </Target>
+
+</Project>

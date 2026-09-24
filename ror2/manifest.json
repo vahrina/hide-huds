@@ -1,0 +1,10 @@
+{
+  "name": "HideHud",
+  "version_number": "0.1.2",
+  "website_url": "",
+  "description": "fade idle vanilla hud elements to fully transparent to mitigate oled burn in",
+  "dependencies": [
+    "bbepis-BepInExPack-5.4.2121",
+    "RiskofThunder-HookGenPatcher-1.2.9"
+  ]
+}
