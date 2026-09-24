@@ -1,8 +1,0 @@
-C:\Users\vah\Documents\cats\HideHud\bin\Release\HideHud.deps.json
-C:\Users\vah\Documents\cats\HideHud\bin\Release\HideHud.dll
-C:\Users\vah\Documents\cats\HideHud\bin\Release\HideHud.pdb
-C:\Users\vah\Documents\cats\HideHud\obj\Release\HideHud.csproj.AssemblyReference.cache
-C:\Users\vah\Documents\cats\HideHud\obj\Release\HideHud.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\vah\Documents\cats\HideHud\obj\Release\HideHud.csproj.CoreCompileInputs.cache
-C:\Users\vah\Documents\cats\HideHud\obj\Release\HideHud.dll
-C:\Users\vah\Documents\cats\HideHud\obj\Release\HideHud.pdb
