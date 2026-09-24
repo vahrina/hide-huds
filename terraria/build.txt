@@ -1,0 +1,2 @@
+displayName = hide-hud
+author = vah

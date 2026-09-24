@@ -1,0 +1,8 @@
+hide idle hud elements, e.g.
+
+- rage/adrenaline meter
+- hotbar
+- hearts/mana
+- minimap
+
+after a short period of time passed
