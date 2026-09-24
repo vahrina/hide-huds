@@ -4,3 +4,5 @@ this repo mainly contains w**AI**t coded slop to quickly get rid of the hud in g
 
 - [risk of rain 2](ror2)
 - [terraria](terraria)
+
+you may also get already [compiled binaries](https://github.com/vahrina/hide-huds/releases/latest) if building from source is not your thing
