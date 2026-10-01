@@ -1,0 +1,13 @@
+src/Build/
+src/Dungeons/Build/
+src/Dungeons/DerivedDataCache/
+src/Dungeons/Intermediate/
+src/Dungeons/Saved/
+src/Dungeons/Binaries/
+src/Dungeons/Content/*
+!src/Dungeons/Content/Mods/
+src/Dungeons/Content/Mods/*
+!src/Dungeons/Content/Mods/HideHud/
+src/Dungeons/Config/
+src/Tools/*.exe
+src/Tools/
