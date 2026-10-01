@@ -8,7 +8,7 @@ the visibility change is instant & not based on a timer, unlike a fading one fro
 
 there is no config file as the game was built with unreal engine 5. the mod serves as a blueprint (`ModActor`), so settings live in the blueprint themselves
 
-the hotkey is `right alt`, if you want to change this please refer to [compiling it yourself](#building)
+the hotkey is `right alt`, if you want to change this please refer to [compiling it yourself](#changing-the-keybind)
 
 ## requirements
 
@@ -34,3 +34,13 @@ python build_mod.py HideHud --install --game "D:/Games/Minecraft Dungeons II" --
 > yes, windows paths use `\`, adjust it! looks ugly everywhere unfortunately
 
 you may also omit every given flag & manually copy the built output from `src/Build/HideHud/` into  `Dungeons/Content/Paks/~mods`
+
+## changing the keybind
+
+1. inside ue 5.6.x (duh), open `Dungeons.uproject`
+2. find the content browser (window > content browser) or in the bottom left, content drawer & open the `ModActor` blueprint
+3. find the keyboard event in the top left, delete the node, right click on an empty space & type your preferred keybind in the prompt (as shown in the image below)
+4. connect the `Pressed` exec pin to the exec input of the `SET` Hud Hidden node (tiny, white arrow on the left)
+5. compile in the top left part of the window, then repeat [the build process](#building)
+
+![](./assets/mdii-keybind.png)
